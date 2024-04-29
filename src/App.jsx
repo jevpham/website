@@ -3,6 +3,7 @@ import Main from "./components/Main";
 import Work from "./components/Work";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Work />
       <Projects />
       <Contact />
+      <SpeedInsights />
     </>
   );
 };
