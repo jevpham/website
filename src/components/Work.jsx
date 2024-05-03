@@ -35,50 +35,72 @@ const data = [
     Wrote scripts and queried the database generating detailed reports`,
   },
 ];
+// const Work = () => {
+//   const ref = useRef(null);
+//   const isInView = useInView(ref);
+
+//   const mainControls = useAnimation();
+//   const slideControls = useAnimation();
+
+//   useEffect(() => {
+//     if (isInView) {
+//       // Fire the animation
+//       mainControls.start("visible");
+//       slideControls.start("visible");
+//     }
+
+//   }, [isInView]);
+
+//   return (
+//     <motion.div
+//       ref={ref}
+//       variants={{
+//         hidden: { opacity: 0, y: 75 },
+//         visible: { opacity: 1, y: 0 },
+//       }}
+//       initial="hidden"
+//       animate={mainControls}
+//       transition={{
+//         duration: 1,
+//         delay: 0.5,
+//       }}
+//       id="work"
+//       className="max-w-[1040px] m-auto md:pl-20 p-4 py-4"
+//     >
+//       <h1 className="text-4xl font-bold text-center text-[#001b5e]">Work</h1>
+//       {data.map((item, idx) => (
+//         <WorkItem
+//           key={idx}
+//           year={item.year}
+//           company={item.company}
+//           title={item.title}
+//           duration={item.duration}
+//           details={item.details}
+//         />
+//       ))}
+//     </motion.div>
+//   );
+// };
+
+// export default Work;
+
 const Work = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref);
-
-  const mainControls = useAnimation();
-  const slideControls = useAnimation();
-
-  useEffect(() => {
-    if (isInView) {
-      // Fire the animation
-      mainControls.start("visible");
-      slideControls.start("visible");
-    }
-
-  }, [isInView]);
-
   return (
-    <motion.div
-      ref={ref}
-      variants={{
-        hidden: { opacity: 0, y: 75 },
-        visible: { opacity: 1, y: 0 },
-      }}
-      initial="hidden"
-      animate={mainControls}
-      transition={{
-        duration: 1,
-        delay: 0.5,
-      }}
-      id="work"
-      className="max-w-[1040px] m-auto md:pl-20 p-4 py-4"
-    >
-      <h1 className="text-4xl font-bold text-center text-[#001b5e]">Work</h1>
-      {data.map((item, idx) => (
-        <WorkItem
-          key={idx}
-          year={item.year}
-          company={item.company}
-          title={item.title}
-          duration={item.duration}
-          details={item.details}
-        />
-      ))}
-    </motion.div>
+    <Transitions>
+      <div id="work" className="max-w-[1040px] m-auto md:pl-20 p-4 py-4">
+        <h1 className="text-4xl font-bold text-center text-[#001b5e]">Work</h1>
+        {data.map((item, idx) => (
+          <WorkItem
+            key={idx}
+            year={item.year}
+            company={item.company}
+            title={item.title}
+            duration={item.duration}
+            details={item.details}
+          />
+        ))}
+      </div>
+    </Transitions>
   );
 };
 
