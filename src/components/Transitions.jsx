@@ -10,7 +10,6 @@ const Transitions = ({ children }) => {
 
   useEffect(() => {
     if (isInView) {
-        
       // Fire the animation
       console.log("InView");
       mainControls.start("visible");
@@ -28,7 +27,7 @@ const Transitions = ({ children }) => {
       initial="hidden"
       animate={mainControls}
       transition={{
-        duration: 1,
+        duration: 0.75,
         delay: 0.5,
       }}
     >
