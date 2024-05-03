@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import WorkItem from "./WorkItem";
-import { motion, useInView, useAnimation } from "framer-motion";
 import Transitions from "./Transitions";
 
 const data = [
@@ -9,10 +8,11 @@ const data = [
     company: "Medical Database",
     title: "Software Engineer",
     duration: "2 Years",
-    details: `Developed ICD website list with a search algorithm for users in React. 
-    Incorporated AWS Datastore for backend using GraphQL API and DynamoDB.
+    details: `Collaborated alongside product manager to revamp multi-page web 
+    app into a single page web app with SEO principles boosting site traffic. 
+    Optimized ad-serving algorithm for the platform enhancing user experience with improved page load times.
     Oversaw teams projects while reviewing code and creating tests for donor web application.
-    Constructed logic so the web application could scale to more users improving page speed`,
+    Built RESTful APIs in .NET backend that provided data to the React front-end based on dynamic user inputs`,
   },
   {
     year: 2021,
@@ -36,24 +36,15 @@ const data = [
   },
 ];
 
-const Work = () => {
-  return (
-    <Transitions>
-      <div id="work" className="max-w-[1040px] m-auto md:pl-20 p-4 py-4">
-        <h1 className="text-4xl font-bold text-center text-[#001b5e]">Work</h1>
-        {data.map((item, idx) => (
-          <WorkItem
-            key={idx}
-            year={item.year}
-            company={item.company}
-            title={item.title}
-            duration={item.duration}
-            details={item.details}
-          />
-        ))}
-      </div>
-    </Transitions>
-  );
-};
+const Work = () => (
+  <Transitions>
+    <div id="work" className="max-w-[1040px] m-auto md:pl-20 p-4 py-4">
+      <h1 className="text-4xl font-bold text-center text-[#001b5e]">Work</h1>
+      {data.map((item, idx) => (
+        <WorkItem key={idx} {...item} />
+      ))}
+    </div>
+  </Transitions>
+);
 
 export default Work;
